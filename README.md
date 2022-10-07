@@ -14,30 +14,21 @@ To develop an end-to-end web application capable of displaying the current job o
 # Folder Structure
 
 - **Assignments**
-
   - Member 1
   - Member 2
   - Member 3
   - Member 4
-
-<br/>
-
+  
 - **Project Design & Planning**
-
   - Ideation Phase
   - Project Design Phase 1
   - Project Design Phase 2
   - Project Planning
-
-  <br/>
-
+  
 - **Project Development Phase**
-
   - Sprint 1
   - Sprint 2
   - Sprint 3
   - Sprint 4
-
-  <br/>
 
 - **Final Deliverables**
