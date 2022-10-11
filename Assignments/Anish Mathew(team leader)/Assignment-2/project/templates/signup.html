@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<style>
+    .form-group {
+        margin-bottom: 25px;
+    }
+</style>
+
+<form action="/signup" method="POST" class="py-3">
+    {{ form.hidden_tag() }}
+    <h1 class="align-items-center text-center py-5 h1">SIGN UP</h1>
+    <div class="form-group">
+        {{ form.email.label}}
+        {% if form.email.errors %}
+        {{ form.email(class="form-control form-control-lg is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.email.errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.email(class="form-control") }}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.username.label(class="form-control-label") }}
+        {% if form.username.errors %}
+        {{ form.username(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.username.errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.username(class="form-control") }}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.password.label(class="form-control-label")}}
+        {% if form.password.errors %}
+        {{ form.password(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.password.errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.password(class="form-control") }}
+        {% endif %}
+
+    </div>
+    <div class="form-group">
+        {{ form.confirm_password.label}}
+        {% if form.confirm_password.errors %}
+        {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.confirm_password.errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.confirm_password(class="form-control") }}
+        {% endif %}
+    </div>
+    <div class="d-grid gap-2">
+        {{form.submit(class="btn btn-outline-info")}}
+    </div>
+</form>
+
+<p class="text-center mt-5">Already have an account? <a href="/">Sign in</a></p>
+
+{% endblock %}

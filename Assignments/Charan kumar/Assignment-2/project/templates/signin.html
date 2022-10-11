@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<style>
+    .form-group {
+        margin-bottom: 25px;
+    }
+</style>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<section>
+    <div class="py-3 mt-5 text-center">
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+    </div>
+</section>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<form action="/signin" method="POST" class="py-3">
+    {{ form.hidden_tag() }}
+    <h1 class="align-items-center text-center py-5 h1">SIGN IN</h1>
+    <div class="form-group">
+        {{ form.email.label}}
+        {% if form.email.errors %}
+        {{ form.email(class="form-control form-control-lg is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.email.errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.email(class="form-control") }}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.password.label(class="form-control-label")}}
+        {% if form.password.errors %}
+        {{ form.password(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.password.errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.password(class="form-control") }}
+        {% endif %}
+    </div>
+    <div class="d-grid gap-2">
+        {{form.submit(class="btn btn-outline-info")}}
+    </div>
+</form>
+<p class="text-center mt-5">Don't have an account? <a href="/signup">create one</a></p>
+
+{% endblock %}

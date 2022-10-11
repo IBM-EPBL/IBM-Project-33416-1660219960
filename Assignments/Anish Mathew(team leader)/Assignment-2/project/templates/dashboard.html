@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'navbar.html' %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<section>
+    <div class="py-3 mt-5 text-center">
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+    </div>
+</section>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<section>
+    <div class="py-2 mt-5 text-center">
+        <h1 class="display-5 fw-bold ">Blogsite</h1>
+        <div class=" mx-auto py-2">
+            <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quia quaerat ex
+                sit
+                ut odit dolore modi ab ea ad quidem maxime, et reprehenderit eos officia earum commodi voluptatem esse
+                libero
+                cupiditate unde voluptatibus. Explicabo quae fugiat eos delectus totam iure laboriosam inventore!
+                Blanditiis
+                facere laudantium et enim accusantium. Veritatis ipsam ducimus ex saepe unde soluta perferendis quod
+                rerum
+                molestias voluptas in suscipit architecto provident sapiente libero, quisquam dolorum iste obcaecati ab
+                modi.
+                Quibusdam sequi accusamus praesentium necessitatibus, voluptates ratione similique vitae labore et
+                voluptas est!
+                Aliquid eveniet magnam magni consequatur officiis, ipsa quae, assumenda numquam, architecto autem
+                mollitia
+                doloremque?</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% if current_user.is_authenticated %}
+
+<section>
+    <div class="py-1 text-center align-items-center">
+        <h1 class="display-5 fw-bold ">User Details</h1>
+        <div class="py-4">
+            <p class="h2 text-secondary">Username: {{user_detail.username}}</p>
+            <p class="h2 text-secondary">email: {{user_detail.email}}</p>
+            <p class="h2 text-secondary">Account created at: {{user_detail.date_posted}}</p>
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+{% endblock %}
