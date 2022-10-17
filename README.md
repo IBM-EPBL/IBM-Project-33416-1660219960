@@ -1,4 +1,10 @@
-# Skill / Job Recommender Application
+# **Skill / Job Recommender Application**
+
+### Team Id : [PNT2022TMID14208](#)
+
+---
+
+## About the project 🚀
 
 This app is a skill recommender solution through which the fresher or the skilled person can log in and find the jobs by using the search option or they can directly interact with the chatbot and get their dream job.
 
@@ -14,21 +20,26 @@ To develop an end-to-end web application capable of displaying the current job o
 # Folder Structure
 
 - **Assignments**
-  - Member 1
-  - Member 2
-  - Member 3
-  - Member 4
-  
+  - [Anish Mathew](<Assignments/Anish%20Mathew(team%20leader)>)
+  - [Dheeraj H](Assignments/Dheeraj/)
+  - [Charan Kumar](Assignments/Charan%20kumar/)
+  - [Keshav S](Assignments/Keshav/)
 - **Project Design & Planning**
-  - Ideation Phase
-  - Project Design Phase 1
-  - Project Design Phase 2
-  - Project Planning
-  
+  - [Ideation Phase](Project%20Design%20%26%20Planning/Ideation%20Phase/)
+  - [Project Design Phase 1](Project%20Design%20%26%20Planning/Project%20Design%20Phase%201/)
+  - [Project Design Phase 2](Project%20Design%20%26%20Planning/Project%20Design%20Phase%202/)
+  - [Project Planning](Project%20Design%20%26%20Planning/Project%20Planning/)
 - **Project Development Phase**
-  - Sprint 1
-  - Sprint 2
-  - Sprint 3
-  - Sprint 4
+
+  - [Sprint 1](Project%20Development%20Phase/Sprint1/)
+  - [Sprint 2](Project%20Development%20Phase/Sprint2/)
+  - [Sprint 3](Project%20Development%20Phase/Sprint3/)
+  - [Sprint 4](Project%20Development%20Phase/Sprint4/)
 
 - **Final Deliverables**
+
+---
+
+## Technical Architecture
+
+![Alt text](https://lh3.googleusercontent.com/1OWTBsvpOXh0YVOalvRAGG8uDOBJea7NpyXg5hSSHb61IRRFHTY8txceIQfcIsc9b9coajOEraPoPIAVr5SOr0WFF0iQKVHnHOXk-wAn6XwNjuZFSsdGwreGV7Y10Q)
