@@ -1,4 +1,4 @@
-# Screenshots for Assingment 2
+# Screenshots for Assignment 2
 
 ## Login Page
 
