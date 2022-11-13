@@ -6,8 +6,6 @@
 - Backend : **Flask**
 - Database : **IBM_DB2**
 
----
-
 ## Progress
 
 - **FrontEnd**
@@ -16,8 +14,6 @@
 - **Backend**
   - Connect to IBM_DB using python package
   - Login and Registration authentication.
-
----
 
 ## Screenshots
 

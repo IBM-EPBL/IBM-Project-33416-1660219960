@@ -6,8 +6,6 @@
 - Backend : **Flask**
 - Database : **IBM_DB2**
 
----
-
 ## Progress
 
 - **FrontEnd**
@@ -16,8 +14,6 @@
   - Fetch the data from `Job API`
 - **Backend**
   - Added `JWT` for authentication and authoriztion
-
----
 
 ## Screenshots
 
