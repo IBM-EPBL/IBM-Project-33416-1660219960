@@ -17,13 +17,9 @@
 
 ## Screenshots
 
-> **Login**
+> **Login / Register**
 
-![Alt text](/Project%20Development%20Phase/Sprint1/screenshots/Login.png)
-
-> **Register**
-
-![Alt text](/Project%20Development%20Phase/Sprint1/screenshots/Register.png)
+![Alt text](/Project%20Development%20Phase/Sprint1/screenshots/Home.png)
 
 > **User table in IBM_DB2**
 
