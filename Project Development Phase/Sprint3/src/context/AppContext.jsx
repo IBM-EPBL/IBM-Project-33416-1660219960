@@ -10,8 +10,6 @@ export const AppProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
 
-  const [showAlert, setShowAlert] = useState(null);
-
   useEffect(() => {
     let temp_user = JSON.parse(localStorage.getItem("user"));
     if (!temp_user) {
@@ -22,9 +20,7 @@ export const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider
-      value={{ user, setUser, showAlert, setShowAlert, skills, setSkills }}
-    >
+    <AppContext.Provider value={{ user, setUser, skills, setSkills }}>
       {children}
     </AppContext.Provider>
   );

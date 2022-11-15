@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { registerUser } from "../proxies/backend_api";
 import { emailRegex } from "../utils/helper";
 
 const SignUp = () => {
-  const { setShowAlert, setUser } = useContext(AppContext);
+  const { setUser } = useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -89,14 +89,24 @@ const SignUp = () => {
     if (checkInputErrors()) {
       const data = await registerUser(inputs);
       if (data.error) {
-        setShowAlert({ type: "error", message: data.error, duration: 3000 });
+        toast({
+          title: data.error,
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          variant: "left-accent",
+          position: "top",
+        });
         return;
       }
       setUser(data);
-      setShowAlert({
-        type: "success",
-        message: `Your journey starts here ${data.name}`,
+      toast({
+        title: `Your journey starts here ${data.name}`,
+        status: "success",
         duration: 3000,
+        isClosable: true,
+        variant: "left-accent",
+        position: "top",
       });
       localStorage.setItem("user", JSON.stringify(data));
       navigate("/profile");
@@ -104,7 +114,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-10 mt-5">
+    <>
       <div>
         <button className="bg-base-300 rounded-box flex flex-row justify-evenly items-center gap-10 px-10 py-5 w-fit mx-auto">
           <span>Sign in with Github</span>
@@ -190,16 +200,10 @@ const SignUp = () => {
             >
               Sign Up
             </button>
-            <p>
-              Already have an account?{" "}
-              <Link className="text-blue-400" to="/">
-                Sign in
-              </Link>
-            </p>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

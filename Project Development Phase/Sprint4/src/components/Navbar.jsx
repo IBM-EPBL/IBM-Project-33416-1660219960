@@ -1,27 +1,43 @@
+import { useToast } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  const toast = useToast();
+
   const { user, setUser, setSkills } = useContext(AppContext);
 
   const logout = () => {
     setUser(null);
+
     setSkills([]);
+
+    toast({
+      title: "Logged out successfully!",
+      status: "info",
+      duration: 3000,
+      isClosable: true,
+      variant: "left-accent",
+      position: "top",
+    });
+
     localStorage.removeItem("user");
+
     navigate("/");
   };
 
   return (
     <div className="navbar bg-base-100 border-b-2">
       <div className="flex-1">
-        <a
+        <Link
           className="btn btn-ghost normal-case text-xl"
-          onClick={() => navigate(user ? "/dashboard" : "/")}
+          to={user ? "/dashboard" : "/"}
         >
           F-ing Jobs
-        </a>
+        </Link>
       </div>
       {user && (
         <div className="flex-none gap-2">

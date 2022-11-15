@@ -31,5 +31,3 @@ export const registerUser = async (inputs) => {
     console.error(error);
   }
 };
-
-e

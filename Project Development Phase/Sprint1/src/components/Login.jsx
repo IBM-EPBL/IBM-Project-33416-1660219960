@@ -1,11 +1,13 @@
-import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { loginUser } from "../proxies/backend_api";
 import { emailRegex } from "../utils/helper";
 
 const Login = () => {
-  const { setShowAlert, setUser } = useContext(AppContext);
+  const toast = useToast();
+  const { setUser } = useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -55,14 +57,24 @@ const Login = () => {
     if (checkInputErrors()) {
       const data = await loginUser(inputs);
       if (data.error) {
-        setShowAlert({ type: "error", message: data.error, duration: 3000 });
+        toast({
+          title: data.error,
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          variant: "left-accent",
+          position: "top",
+        });
         return;
       }
       setUser(data);
-      setShowAlert({
-        type: "success",
-        message: `Welcome back ${data.name}`,
+      toast({
+        title: `Welcome back ${data.name}`,
+        status: "success",
         duration: 3000,
+        isClosable: true,
+        variant: "left-accent",
+        position: "top",
       });
       localStorage.setItem("user", JSON.stringify(data));
       navigate("/dashboard");
@@ -70,7 +82,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-10 mt-5">
+    <>
       <div>
         <button className="bg-base-300 rounded-box flex flex-row justify-evenly items-center gap-10 px-10 py-5 w-fit mx-auto">
           <span>Sign in with Github</span>
@@ -119,16 +131,10 @@ const Login = () => {
             >
               Login
             </button>
-            <p>
-              Don't have an account?{" "}
-              <Link className="text-blue-400" to="/signup">
-                Sign up
-              </Link>
-            </p>
           </div>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 
