@@ -1,5 +1,7 @@
 # Sprint 2
 
+## App is now available at http://169.51.207.195:32478/
+
 ## Application stack
 
 - Frontend : **React**

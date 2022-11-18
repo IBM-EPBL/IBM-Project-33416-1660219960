@@ -1,8 +1,8 @@
 # **Skill / Job Recommender Application**
 
-### Team Id : [PNT2022TMID14208](#)
+## Team Id : [PNT2022TMID14208](#)
 
----
+## Have a look for yourself [here](http://169.51.207.195:32478)
 
 ## About the project 🚀
 
@@ -37,6 +37,7 @@ To develop an end-to-end web application capable of displaying the current job o
   - [Sprint 4](Project%20Development%20Phase/Sprint4/)
 
 - **Final Deliverables**
+  - [Project Code](Final%20Deliverables/Project%20Code/)
 
 ---
 
