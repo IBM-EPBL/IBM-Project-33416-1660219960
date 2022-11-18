@@ -3,6 +3,7 @@ import {
   SkeletonCircle,
   SkeletonText,
   Spinner,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
@@ -11,9 +12,12 @@ import SearchBar from "../components/SearchBar";
 import Skill from "../components/Skill";
 import { AppContext } from "../context/AppContext";
 import { getUserSkills } from "../proxies/backend_api";
+import { getBaseUrl, getBaseUrl_with_skills } from "../utils/helper";
 
 const Dashboard = () => {
   const { user, skills, setSkills } = useContext(AppContext);
+
+  const toast = useToast();
 
   const [selectedSkills, setSelectedSkills] = useState([]);
 
@@ -25,22 +29,25 @@ const Dashboard = () => {
 
   const [posts, setPosts] = useState(null);
 
-  const id = import.meta.env.VITE_ADZUNA_API_ID;
-
-  const key = import.meta.env.VITE_ADZUNA_API_KEY;
-
-  const baseURL_with_skills = `http://api.adzuna.com/v1/api/jobs/in/search/1?app_id=${id}&app_key=${key}&results_per_page=15&what=${query}&what_and=${selectedSkills.join(
-    " "
-  )}&&content-type=application/json`;
-
-  const baseURL = `http://api.adzuna.com/v1/api/jobs/in/search/1?app_id=${id}&app_key=${key}&results_per_page=15&what=${query}&content-type=application/json`;
-
   const searchJobsFromQuery = async () => {
     setJobsLoading(true);
 
-    if (query !== "" || !posts) {
-      const { data } = await axios.get(baseURL);
-      setPosts(data.results);
+    try {
+      if (query !== "" || !posts) {
+        const { data } = await axios.get(getBaseUrl(query));
+
+        setPosts(data.results);
+      }
+    } catch (error) {
+      toast({
+        title: `Trying to fetch data!!`,
+        description: "Something went wrong",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+        variant: "left-accent",
+        position: "top",
+      });
     }
 
     setJobsLoading(false);
@@ -49,9 +56,23 @@ const Dashboard = () => {
   const searchWithSkills = async () => {
     setJobsLoading(true);
 
-    const { data } = await axios.get(baseURL_with_skills);
+    try {
+      const { data } = await axios.get(
+        getBaseUrl_with_skills(query, selectedSkills)
+      );
 
-    setPosts(data.results);
+      setPosts(data.results);
+    } catch (error) {
+      toast({
+        title: `Trying to fetch data!!`,
+        description: "Something went wrong",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+        variant: "left-accent",
+        position: "top",
+      });
+    }
 
     setJobsLoading(false);
   };
@@ -123,7 +144,7 @@ const Dashboard = () => {
           ) : (
             <h2 className="text-2xl mt-5">
               Search for keywords {query}
-              {filterUsingSkills && `,${skills.join(",")}`}
+              {`,${selectedSkills.join(",")}`}
             </h2>
           )}
 

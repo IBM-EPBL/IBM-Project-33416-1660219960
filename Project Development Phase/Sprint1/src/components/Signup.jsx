@@ -1,3 +1,4 @@
+import { useToast } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
@@ -5,6 +6,8 @@ import { registerUser } from "../proxies/backend_api";
 import { emailRegex } from "../utils/helper";
 
 const SignUp = () => {
+  const toast = useToast();
+
   const { setUser } = useContext(AppContext);
 
   const navigate = useNavigate();
@@ -109,7 +112,7 @@ const SignUp = () => {
         position: "top",
       });
       localStorage.setItem("user", JSON.stringify(data));
-      navigate("/profile");
+      navigate("/dashboard");
     }
   };
 
@@ -121,7 +124,13 @@ const SignUp = () => {
           <img src={`github-dark.png`} alt="github" width="14%" />
         </button>
         <div className="divider max-w-xs">or</div>
-        <div className="card bg-base-300 rounded-box flex flex-col justify-center items-center gap-3 px-10 py-5 w-fit mx-auto">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSignUp();
+          }}
+          className="card bg-base-300 rounded-box flex flex-col justify-center items-center gap-3 px-10 py-5 w-fit mx-auto"
+        >
           <div>
             <input
               value={inputs.name}
@@ -151,7 +160,7 @@ const SignUp = () => {
           <div>
             <input
               value={inputs.phone_number}
-              type="text"
+              type="number"
               name="phone_number"
               placeholder="phone number"
               className="input input-bordered input-primary w-full"
@@ -201,7 +210,7 @@ const SignUp = () => {
               Sign Up
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );
