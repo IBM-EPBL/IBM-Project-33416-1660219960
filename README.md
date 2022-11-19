@@ -1,8 +1,12 @@
 # **Skill / Job Recommender Application**
 
-## Team Id : [PNT2022TMID14208](#)
+### Team Id : [PNT2022TMID14208](#)
 
-## Have a look for yourself [here](http://169.51.207.195:32478)
+## Links
+
+### Live App Deployment [here](http://169.51.207.195:32478)
+
+### Demo Link https://youtu.be/17QrARMxdgA
 
 ## About the project 🚀
 
