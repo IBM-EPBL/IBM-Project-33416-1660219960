@@ -20,10 +20,12 @@ To develop an end-to-end web application capable of displaying the current job o
 # Folder Structure
 
 - **Assignments**
+
   - [Anish Mathew](<Assignments/Anish%20Mathew(team%20leader)>)
   - [Dheeraj H](Assignments/Dheeraj/)
   - [Charan Kumar](Assignments/Charan%20kumar/)
   - [Keshav S](Assignments/Keshav/)
+
 - **Project Design & Planning**
   - [Ideation Phase](Project%20Design%20%26%20Planning/Ideation%20Phase/)
   - [Project Design Phase 1](Project%20Design%20%26%20Planning/Project%20Design%20Phase%201/)
@@ -38,6 +40,7 @@ To develop an end-to-end web application capable of displaying the current job o
 
 - **Final Deliverables**
   - [Project Code](Final%20Deliverables/Project%20Code/)
+  - [Project Report](Final%20Deliverables/Project_Report.pdf)
 
 ---
 
