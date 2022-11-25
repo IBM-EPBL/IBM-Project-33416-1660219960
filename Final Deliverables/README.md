@@ -9,3 +9,19 @@
 - Frontend : **React**
 - Backend : **Flask**
 - Database : **IBM_DB2**
+
+## Code Screenshots
+
+## Backend
+
+![Alt text](</Final Deliverables/screenshots/backend_code_1.png>)
+
+![Alt text](</Final Deliverables/screenshots/backend_code_2.png>)
+
+![Alt text](</Final Deliverables/screenshots/backend_code_3.png>)
+
+## Frontend
+
+![Alt text](</Final Deliverables/screenshots/frontend_code_1.png>)
+
+![Alt text](</Final Deliverables/screenshots/frontend_code_2.png>)
